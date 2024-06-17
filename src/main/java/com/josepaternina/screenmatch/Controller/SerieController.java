@@ -16,10 +16,11 @@ public class SerieController {
     private SerieRepository repository; // Inyección del repositorio
 
     @GetMapping("/series")
-    public List<SerieDTO> mostrarMensaje() {
+    public List<SerieDTO> obtenerTodasLasSeries() {
         // Conversión del tipo de datos Serie a SerieDTO
         return repository.findAll().stream().
                 map(s -> new SerieDTO(s.getTitulo(), s.getTotalDeTemporadas(), s.getEvaluacion(), s.getGenero(), s.getSinopsis(), s.getPoster()))
                 .collect(Collectors.toList());
     }
+
 }
