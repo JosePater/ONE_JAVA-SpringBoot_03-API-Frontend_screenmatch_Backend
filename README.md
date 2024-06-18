@@ -20,7 +20,9 @@ Proyecto base: (02) [ONE_JAVA-SpringBoot_02-JAVA-DB_screenmatch](https://github.
 
 ### Branches:
 
-| Item             | Nombre de la rama                |
+| Cantidad         | Nombre de la rama                |
 |------------------|----------------------------------|
 | Proyecto inicial | base-project_JAVA-DB_screenmatch |
 | 01               | 01-transformation-to-an-API      |
+| 02               | 02-Data-for-Frontend             |
+| 03               | 03-mapping-website               |
