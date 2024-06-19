@@ -32,4 +32,9 @@ public class SerieService {
                         s.getGenero(), s.getSinopsis(), s.getPoster()))
                 .collect(Collectors.toList());
     }
+
+    // Lanzamientos más recientes
+    public List<SerieDTO> obtenerLazamientosMasRecientes() {
+        return convertirASerieDTO(repository.lanzamientosMasRecientes());
+    }
 }

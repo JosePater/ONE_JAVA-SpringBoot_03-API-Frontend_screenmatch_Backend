@@ -22,5 +22,9 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
     // Consultas JPQL (Java Persistence Query Language)        :variablePorParametro
     @Query("SELECT s FROM Serie s WHERE s.totalDeTemporadas <= :totalTemporada AND s.evaluacion >= :evaluacion")
     List<Serie> seriesPorTemporadaYEvaluacion(int totalTemporada, double evaluacion);
+
+    // Obtener las series más recientes (5)
+    @Query("SELECT s FROM Serie s JOIN s.episodios e GROUP BY s ORDER BY MAX(e.fechaDeLanzamiento) DESC LIMIT 5")
+    List<Serie> lanzamientosMasRecientes();
 }
 
