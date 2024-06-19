@@ -14,9 +14,16 @@ public class SerieController {
     @Autowired
     private SerieService service; // Inyección del servicio
 
+    // Obtener todas las series de la base da datos
     @GetMapping("/series")
     public List<SerieDTO> obtenerTodasLasSeries() {
         return service.obtenerTodasLasSeries();
+    }
+
+    // Obtener top 5 series (db)
+    @GetMapping("/series/top5")
+    public List<SerieDTO> obtenerTop5Series() {
+        return service.obtenerTop5Series();
     }
 
 }
