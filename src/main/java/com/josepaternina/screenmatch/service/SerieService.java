@@ -59,10 +59,18 @@ public class SerieService {
 
         if (serie.isPresent()) {
             Serie s = serie.get();
+            // Convierte tipo Episodio a EpisodioDTO
             return s.getEpisodios().stream().map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(),
                     e.getNumeroEpisodio())).collect(Collectors.toList());
         }
         return null;
     }
 
+    // Obtener episodios por temporada
+    public List<EpisodioDTO> obtenerTemporadasPorNumero(Long id, Long numeroTemporada) {
+        // Convierte tipo Episodio a EpisodioDTO
+        return repository.obtenerTemporadasPorNumero(id, numeroTemporada).stream()
+                .map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(),
+                        e.getNumeroEpisodio())).collect(Collectors.toList());
+    }
 }

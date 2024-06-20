@@ -1,6 +1,7 @@
 package com.josepaternina.screenmatch.repository;
 
 import com.josepaternina.screenmatch.model.Categoria;
+import com.josepaternina.screenmatch.model.Episodio;
 import com.josepaternina.screenmatch.model.Serie;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,5 +27,9 @@ public interface SerieRepository extends JpaRepository<Serie, Long> {
     // Obtener las series más recientes (5)
     @Query("SELECT s FROM Serie s JOIN s.episodios e GROUP BY s ORDER BY MAX(e.fechaDeLanzamiento) DESC LIMIT 5")
     List<Serie> lanzamientosMasRecientes();
+
+    // Obtener episodios por el número de temporada
+    @Query("SELECT e FROM Serie s JOIN s.episodios e WHERE s.id = :id AND e.temporada = :numeroTemporada")
+    List<Episodio> obtenerTemporadasPorNumero(Long id, Long numeroTemporada);
 }
 
