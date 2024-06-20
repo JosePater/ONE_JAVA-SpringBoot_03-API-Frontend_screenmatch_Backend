@@ -54,4 +54,10 @@ public class SerieController {
         return service.obtenerTemporadasPorNumero(id, numeroTemporada);
     }
 
+    // Obtener series por categoría
+    @GetMapping("categoria/{nombreGenero}")
+    public List<SerieDTO> obtenerSeriesPorCategoria(@PathVariable String nombreGenero) {
+        return service.obtenerSeriesPorCategoria(nombreGenero);
+    }
+
 }
