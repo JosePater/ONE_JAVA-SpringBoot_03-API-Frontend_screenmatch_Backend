@@ -16,7 +16,8 @@ API de series, cuenta con las siguientes opciones:
 - 2: Buscar episodios (API)
 - 3: Mostrar series buscadas (DB)
 
-Proyecto base: (02) [ONE_JAVA-SpringBoot_02-JAVA-DB_screenmatch](https://github.com/JosePater/ONE_JAVA-SpringBoot_02-JAVA-DB_screenmatch/tree/03-mapping-relationship)
+Proyecto base:
+(`02`) [ONE_JAVA-SpringBoot_02-JAVA-DB_screenmatch](https://github.com/JosePater/ONE_JAVA-SpringBoot_02-JAVA-DB_screenmatch/tree/03-mapping-relationship)
 
 ### Branches:
 
@@ -26,3 +27,16 @@ Proyecto base: (02) [ONE_JAVA-SpringBoot_02-JAVA-DB_screenmatch](https://github.
 | 01               | 01-transformation-to-an-API      |
 | 02               | 02-Data-for-Frontend             |
 | 03               | 03-mapping-website               |
+| 04               | 04-Adding-more-details           |
+
+### Endpoints
+
+| Método | Ruta                                 | Descripción                                         |
+|--------|--------------------------------------|-----------------------------------------------------|
+| GET    | `/series`                            | Obtiene todas las series de la `db`                 |
+| GET    | `/series/{id}`                       | Obtiene la serie por su id                          |
+| GET    | `/series/top5`                       | Obtiene las 5 mejores series de la `db`             |
+| GET    | `/series/lanzamientos`               | Obtiene las series más recientes de la  `db`        |
+| GET    | `/series/{id}/temporadas/todas`      | Obtiene todos los episodios de todas las temporadas |
+| GET    | `/{id}/temporadas/{numeroTemporada}` | Obtiene episodios por número de temporadas          |
+| GET    | `/categoria/{nombreGenero}`          | Obtiene series según su categoría                   |
