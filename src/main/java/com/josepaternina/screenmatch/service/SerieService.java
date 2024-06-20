@@ -28,6 +28,15 @@ public class SerieService {
         return convertirASerieDTO(repository.findTop5ByOrderByEvaluacionDesc());
     }
 
+    // Obtener los 5 mejores episodios de la serie
+    public List<EpisodioDTO> obtenerTopEpisodios(Long id) {
+        var serie = repository.findById(id).get();
+        return repository.topEpisodiosPorSerie(serie).stream()
+                .map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(), e.getNumeroEpisodio()))
+                .collect(Collectors.toList());
+    }
+
+
     // Convertir tipo de datos Serie a SerieDTO
     public List<SerieDTO> convertirASerieDTO(List<Serie> serie) {
         return serie.stream()
