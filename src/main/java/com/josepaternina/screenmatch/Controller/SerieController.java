@@ -30,7 +30,7 @@ public class SerieController {
     }
 
     // Ver las series más recientes
-    @GetMapping("/lanzamiento")
+    @GetMapping("/lanzamientos")
     public List<SerieDTO> lanzamientosMasRecientes() {
         return service.obtenerLazamientosMasRecientes();
     }
