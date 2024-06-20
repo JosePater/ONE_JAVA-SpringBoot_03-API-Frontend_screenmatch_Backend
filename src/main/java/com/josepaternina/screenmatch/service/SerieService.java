@@ -1,5 +1,6 @@
 package com.josepaternina.screenmatch.service;
 
+import com.josepaternina.screenmatch.dto.EpisodioDTO;
 import com.josepaternina.screenmatch.dto.SerieDTO;
 import com.josepaternina.screenmatch.model.Serie;
 import com.josepaternina.screenmatch.repository.SerieRepository;
@@ -51,4 +52,17 @@ public class SerieService {
 
         return null;
     }
+
+    // Obtener todos los episodios de todas las temporadas
+    public List<EpisodioDTO> obtenerTodasLasTemporadas(Long id) {
+        Optional<Serie> serie = repository.findById(id);
+
+        if (serie.isPresent()) {
+            Serie s = serie.get();
+            return s.getEpisodios().stream().map(e -> new EpisodioDTO(e.getTemporada(), e.getTitulo(),
+                    e.getNumeroEpisodio())).collect(Collectors.toList());
+        }
+        return null;
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.josepaternina.screenmatch.Controller;
 
+import com.josepaternina.screenmatch.dto.EpisodioDTO;
 import com.josepaternina.screenmatch.dto.SerieDTO;
 import com.josepaternina.screenmatch.service.SerieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +36,16 @@ public class SerieController {
         return service.obtenerLazamientosMasRecientes();
     }
 
+    // Ver detalles de una serie por su Id
     @GetMapping("/{id}")
     public SerieDTO ObtenerSeriePorId(@PathVariable Long id) {
         return service.obtenerSeriePorId(id);
+    }
+
+    // Obtener todos los episodios de todas las temporadas
+    @GetMapping("/{id}/temporadas/todas")
+    public List<EpisodioDTO> obtenerTodasLasTemporadas(@PathVariable Long id) {
+        return service.obtenerTodasLasTemporadas(id);
     }
 
 }
